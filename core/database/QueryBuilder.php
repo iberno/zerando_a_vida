@@ -1,9 +1,17 @@
 <?php
+
+namespace App\Core\Database;
+
+use PDO;
+
 /**
  * Classe global para Tratamento dos dados.
  */
 class QueryBuilder
 {
+	/**
+	 * Instância PDO
+	 */
     protected $pdo;
 	/**
 	 * Método de Instânciamento do Driver PDO
@@ -37,6 +45,7 @@ class QueryBuilder
 		);
 		try {
 			$statement = $this->pdo->prepare($sql);
+			
 			$statement->execute($parameters);
 		} catch (Exception $e) {
 			die('Whoops, Alguma coisa deu errado ;(! Não foi possível salvar os dados.');

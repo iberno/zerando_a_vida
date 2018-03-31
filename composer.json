@@ -2,6 +2,10 @@
     "autoload": {
         "classmap": [
             "./"
-        ]
+        ],
+        "files": ["core/helpers.php"]
+    },
+    "require": {
+        "twig/twig": "^2.4"
     }
 }

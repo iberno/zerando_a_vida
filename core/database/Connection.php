@@ -1,4 +1,8 @@
 <?php
+namespace App\Core\Database;
+
+use PDO;
+use PDOException;
 
 /**
  * Classe PDO de conexão com Banco de Dados 

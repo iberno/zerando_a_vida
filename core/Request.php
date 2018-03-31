@@ -1,9 +1,13 @@
 <?php
 
+namespace App\Core;
+
 class Request
 {
     /**
-     * Classe responsável por criar as URIs
+     * Fetch the request URI.
+     *
+     * @return string
      */
     public static function uri()
     {
@@ -11,8 +15,11 @@ class Request
             parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'
         );
     }
+
     /**
-     * Classe que pega o Metodo da URI
+     * Fetch the request method.
+     *
+     * @return string
      */
     public static function method()
     {

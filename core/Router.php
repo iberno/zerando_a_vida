@@ -1,16 +1,17 @@
 <?php
 
+namespace App\Core;
+
 class Router
 {
     /** 
      * Methods Protegidos
+     * 
+     * @ array
      */
-    protected $routes = [
-        'GET'       =>  [],  
-        'POST'      =>  [],  
-        'PATCH'     =>  [],  
-        'PUT'       =>  [],  
-        'DELETE'    =>  [] 
+    public $routes = [
+        'GET' => [],
+        'POST' => []
     ];
     /** 
      * Function que prepara a Rota
@@ -21,20 +22,11 @@ class Router
         require $file;
         return $router;
     }
-    // /** 
-    //  * Function que Define a Rota
-    //  */
-    // public function define($routes)
-    // {
-    //     $this->routes = $routes;
-    // }
     /**
      * Function do Method GET
      */
     public function get($uri, $controller)
     {
-        $getRoutes = [];
-        
         $this->routes['GET'][$uri] = $controller;
     }
     /**
@@ -44,35 +36,35 @@ class Router
     {
         $this->routes['POST'][$uri] = $controller;
     }
-    /**
-     * Function do Method PATCH
-     */
-    public function patch($uri, $controller)
-    {
-        $this->routes['PATCH'][$uri] = $controller;
-    }
-    /**
-     * Function do Method PUT
-     */
-    public function put($uri, $controller)
-    {
-        $this->routes['PUT'][$uri] = $controller;
-    }
-    /**
-     * Function do Method DELETE
-     */
-    public function delete($uri, $controller)
-    {
-        $this->routes['DELETE'][$uri] = $controller;
-    }
+
     /**
      * Function que associa a URI com o Method dentro da Rota
      */
     public function direct($uri, $requestType)
     {
         if (array_key_exists($uri, $this->routes[$requestType])) {
-            return $this->routes[$requestType][$uri];
+            return $this->callAction(
+                ...explode('@', $this->routes[$requestType][$uri])
+            );
         }
+
         throw new Exception('Nenhuma Rota definida para esta URI!');
+    }
+    /**
+     * Function que concatena o Controller ao Método
+     * ex: PagesController@home
+     */
+    protected function callAction($controller, $action)
+    {
+        $controller = "App\\Controllers\\{$controller}";
+        $controller = new $controller;
+
+        if (!method_exists($controller, $action)) {
+            throw new Exception(
+                "{$controller}  Não corresponde a {$action} ação."
+            );
+        }
+
+        return $controller->$action();
     }
 }

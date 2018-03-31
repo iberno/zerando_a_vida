@@ -9,15 +9,7 @@
     </form>
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
-        <?php foreach ($tasks as $task) : ?>
-          <li>
-            <?php if($task->completed) : ?>
-              <strike><?= $task->description; ?></strike>
-            <?php else: ?>
-              <?= $task->description; ?>
-            <?php endif; ?>
-          </li>
-        <?php endforeach; ?>
+        <h1>Olá</h1>
       </div>
     </div>
   </div>
