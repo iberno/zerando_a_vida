@@ -1,4 +1,6 @@
 <?php
+
+require 'vendor/autoload.php';
 //get (oneself or something) into or out of a situation using existing resources.
 $database = require 'core/bootstrap.php';
 
