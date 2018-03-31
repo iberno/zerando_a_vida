@@ -1,5 +1,5 @@
 <?php
-$task = $app['database']->insert('todos', [
+$task = App::get('database')->insert('todos', [
     'description' => $_POST['description']
 ]);
 
