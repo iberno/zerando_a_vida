@@ -19,4 +19,18 @@ class PagesController
     {
         return view('contact');
     }
+
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function postLogin()
+    {
+        echo 'Post Login';
+    }
+    public function registrar()
+    {
+        return view('register');
+    }
 }

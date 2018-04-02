@@ -9,8 +9,10 @@
     <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="/public/css/normalize.css">
-    <link rel="stylesheet" href="/public/css/skeleton.css">
+    <link rel="stylesheet" href="/public/css/uikit.min.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <script src="/public/js/uikit.min.js"></script>
+    <script src="/public/js/uikit-icons.min.js"></script>
     <!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <link rel="icon" type="image/png" href="images/favicon.png">
   </head>
